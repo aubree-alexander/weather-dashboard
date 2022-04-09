@@ -29,10 +29,23 @@ function getCoord(city){
 
 getCoord("edison");
 
+
+function getCity() {
+    var cityName = $("#searchBar").value
+    console.log(cityName)
+
+}
+
+getCity()
+
+
+//click event for search button
+
+
 //https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
 
-// Step 2. create form input box using HTML and CSS or CSS framework
+
 // Step 3. create fetch function to the weather API to return data about current and future weather conditions
     // Step 3.5. Include data about city name, date, weather condition icon (fontAwesome?) temp, humidity, wind speed, UV index
 // Step 4. create function to save search data to localStorage
@@ -42,7 +55,7 @@ getCoord("edison");
  
 
 
-// GIVEN a weather dashboard with form inputs
+
 // WHEN I search for a city
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
 // WHEN I view current weather conditions for that city

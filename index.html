@@ -4,14 +4,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/37943c69a0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
 </head>
 <body>
-    
-    <div id="test">
-        
+    <header class>
+        <h1 class="pageTitle">Weather Dashboard</h1>
+    </header>
+
+    <div id="citySearchSection" class="container w-25 float-left">
+        <div>
+            <div class="row">
+                <h2 id="citySearch">Search for a City:</h2>
+            </div>
+            <div class="row">
+                <textarea placeholder="Enter city name here" id="searchBar"></textarea>
+            </div>
+            <div class="row">
+                <btn id="searchBtn">Search</btn>
+            </div>
+        </div>
+        <div>
+            <!--search history btns go here-->
+        </div>
     </div>
 
+    <section class="w-75 float-right">
+        <div id="currentDayWeather">
+            <h2></h2> <!--City name and date goes here-->
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+            <p>UV Index:</p>
+        </div>
+        
+        <div>
+            <div id="forecastTitle">
+                <h3>5-Day Forecast:</h3>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div id="day1" class="forecastDay">
+                        <p class="date"></p>
+                        <i class="weatherIcon"></i>
+                        <p class="temp">Temp:</p>
+                        <p class="wind">Wind:</p>
+                        <p class="humidity">Humidity:</p>
+                    </div>
+
+                    <div id="day2" class="forecastDay">
+                        <p class="date"></p>
+                        <i class="weatherIcon"></i>
+                        <p class="temp">Temp:</p>
+                        <p class="wind">Wind:</p>
+                        <p class="humidity">Humidity:</p>
+                    </div>
+
+                    <div id="day3" class="forecastDay">
+                        <p class="date"></p>
+                        <i class="weatherIcon"></i>
+                        <p class="temp">Temp:</p>
+                        <p class="wind">Wind:</p>
+                        <p class="humidity">Humidity:</p>
+                    </div>
+
+                    <div id="day4" class="forecastDay">
+                        <p class="date"></p>
+                        <i class="weatherIcon"></i>
+                        <p class="temp">Temp:</p>
+                        <p class="wind">Wind:</p>
+                        <p class="humidity">Humidity:</p>
+                    </div>
+
+                    <div id="day5" class="forecastDay">
+                        <p class="date"></p>
+                        <i class="weatherIcon"></i>
+                        <p class="temp">Temp:</p>
+                        <p class="wind">Wind:</p>
+                        <p class="humidity">Humidity:</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--jquery CDN-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
