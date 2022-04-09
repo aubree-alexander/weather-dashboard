@@ -15,9 +15,12 @@ function getCoord(city){
             return res.json();
         })
         .then(function(data){
-            console.log(data);
-            console.log(data[0])
-            console.log(data[0].state)
+            var latitude = $.trim(data[0].lat)
+            var longitude = $.trim(data[0].lon)
+            localStorage.setItem('latitude', latitude)
+            localStorage.setItem('longitude', longitude)
+            // console.log(data[0].lat)
+            // console.log(data[0].lon)
 
             //document.getElementById("test").innerHTML = data[0].state;
             $("#test").html(data[0].state);
@@ -30,16 +33,14 @@ function getCoord(city){
 getCoord("edison");
 
 
-function getCity() {
-    var cityName = $("#searchBar").value
-    console.log(cityName)
-
-}
-
-getCity()
 
 
-//click event for search button
+
+//click event for search button, save to localstorage
+$("#searchBtn").click(function() {
+    var cityName = $.trim($("#searchBar").val())
+    localStorage.setItem('cityName', cityName)
+})
 
 
 //https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
