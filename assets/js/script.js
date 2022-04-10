@@ -80,11 +80,12 @@ function getCurrent(city, data) {
 function fiveDay(data) {
     var fiveDayDiv = $("#fiveDay")
     var fiveDayCol = document.createElement('div')
-    fiveDayCol.setAttribute('class', 'col-12')
+    fiveDayCol.setAttribute('class', 'col-12 row')
     fiveDayDiv.append(fiveDayCol)
 
     for (i = 1; i < 6; i++) {
         var cardDate = document.createElement('div')
+        cardDate.setAttribute('class', 'card')
         cardDate.textContent = dayjs.unix(data.daily[i].dt).tz(data.timezone).format('M/D/YYYY')
         var cardTemp = document.createElement('p')
         var cardHumidity = document.createElement('p')
@@ -99,7 +100,7 @@ function fiveDay(data) {
         cardHumidity.innerText = "Humidity: " + dataHumidity + "%"
         cardWind.innerText = "Wind: " + dataWind + " MPH"
         
-        cardHolder.append(cardTemp, cardHumidity, cardWind)
+        cardDate.append(cardTemp, cardHumidity, cardWind)
         
 
     }

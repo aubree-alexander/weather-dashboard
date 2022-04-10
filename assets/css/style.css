@@ -62,8 +62,19 @@ header {
     width: 100%;
 }
 
-#cardHolder {
-    border: 3px green solid;
+.col-12 {
+    justify-content: space-between;
 }
 
 
+
+.card {
+    background-color: #1b516b;
+    color: white;
+    font-weight: bold;
+}
+
+.col-12 p {
+    color: white;
+    font-weight: normal;
+ }
