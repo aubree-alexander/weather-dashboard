@@ -14,44 +14,37 @@
         <h1 class="pageTitle">Weather Dashboard</h1>
     </header>
 
-    <!--search section-->
+    <main>
+        <!--search section-->
+        <section class="container searchSection">
+            <form id="citySearchSection" class="float-left">
+                <h2 id="citySearch">Search for a City:</h2>
+                <input type="text" placeholder="Enter city name here" id="searchBar" />
+                <btn id="searchBtn">Search</btn>
+            </form>
 
-    <div class="container">
-        <div id="citySearchSection" class="float-left">
-            <div>
-                <div class="row">
-                    <h2 id="citySearch">Search for a City:</h2>
-                </div>
-                <div class="row">
-                    <textarea placeholder="Enter city name here" id="searchBar"></textarea>
-                </div>
-                <div class="row">
-                    <btn id="searchBtn">Search</btn>
-                </div>
-            </div>
-            <div class="searchHistory">
-                <span id="searchHistoryItem"></span>
-                <!--search history btns go here-->
-            </div>
-        </div>
-
-        <div id="currentDayWeather" class="w-85">
+            <!--search history-->
+            <ul id="searchHistory">
+                <!--search history li's go here-->
+            </ul>
+        </section>
+        
+        <!--current weather for city entered in searchbar-->
+        <section id="currentDayWeather">
             <div id="weatherCard" class="card-body">
             </div>
-        </div>
-    </div>
-       
+        </section>
         
-            <div class="container">
-                <div id="fiveDay" class="fiveDay">
-                    <div id="forecastTitle">
-                        <h3>5-Day Forecast:</h3>
+        
+            
+                <div class="container">
+                    <div id="fiveDay" class="fiveDay">
+                        <div id="forecastTitle">
+                            <h3>5-Day Forecast:</h3>
+                        </div>
                     </div>
-                    
-           
                 </div>
-            </div>
-        
+    </main>
 
     <!--moment.js CDNs-->
     <script

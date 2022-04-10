@@ -6,8 +6,7 @@ dayjs.extend(window.dayjs_plugin_timezone);
 var cityName = '';
 var apiKey = "d91f911bcf2c0f925fb6535547a5ddc9";
 //"a6afda3f25e97c43efdc2ed9326eeba8";
-var searchHistoryItem = $("#searchHistoryItem")
-var searchHistory = $("searchHistory")
+var searchHistory = $("#searchHistory")
 
 
 
@@ -38,7 +37,6 @@ function getCoord(city){
 }
 getCoord("edison");
 
-//backtrack to here 
 
 //get current weather data for city entered 
 function getCurrent(city, data) {
@@ -108,19 +106,21 @@ function fiveDay(data) {
 
 
 
-// //click event for search button, save to localstorage
-// $("#searchBtn").click(function() {
-//     var cityName = $.trim($("#searchBar").val())
-//     getCoord(cityName)
-//     // var searchItemContainer = document.createElement("div")
-//     // searchItemContainer.classList = "list-item flex-row justify-space-between align-center"
-//     var searchItemHistory = document.createElement("span")
-//     searchItemHistory.classList = "flex-row align-center"
-//     searchItemContainer.append(searchItemHistory)
-//     searchHistory.append(searchItemContainer)
 
-//     localStorage.setItem('cityName', cityName)
-// })
+// //click event for search button, save to localstorage
+$("#searchBtn").click(function() {
+    var cityName = $.trim($("#searchBar").val())
+    getCoord(cityName)
+    //aa commented these out on sunday
+    // var searchItems = document.createElement("btn")
+    // searchItems.innerText = cityName
+    // searchHistoryButtons.append(searchItems)
+    var cityNameLi = document.createElement("li")
+    cityNameLi.innerText = cityName
+    cityNameLi.setAttribute('class', 'historyButtons')
+    $("#searchHistory").append(cityNameLi)
+    // localStorage.setItem('cityName', cityName)
+})
 
 
 //https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
