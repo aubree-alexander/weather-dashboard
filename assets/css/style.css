@@ -15,8 +15,10 @@ header {
     text-align: center;
 }
 
-#citySearch {
+#citySearchSection {
     font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
 }
 
 #searchBar {
@@ -39,9 +41,29 @@ header {
 
 #currentDayWeather {
     border: 3px solid;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
 }
 
 #forecastTitle {
     font-weight: bold;
 }
+
+#fiveDay {
+    border: 3px red solid;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#weathercard {
+    width: 100%;
+}
+
+#cardHolder {
+    border: 3px green solid;
+}
+
 
