@@ -90,7 +90,7 @@ function fiveDay(data) {
         var cardHumidity = document.createElement('p')
         var cardWind = document.createElement('p')
         var icon = document.createElement('img')
-        icon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.daily[i].weather[0].icon + '@2x.png')
+        icon.setAttribute('src', 'https://openweathermap.org/img/wn/' + data.daily[i].weather[0].icon + '@2x.png')
         icon.setAttribute('class', 'iconStyle')
         fiveDayCol.append(cardDate)
         var dataTemp = data.daily[0].temp.day
