@@ -52,7 +52,7 @@ function getCurrent(city, data) {
     var icon = document.createElement('img')
     weatherColumn.setAttribute('class', 'col-md')
     weatherCard.setAttribute('class', 'card-body float-left')
-    icon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png')
+    icon.setAttribute('src', 'https://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png')
     icon.setAttribute('class', 'iconStyleCurrent')
     cityTitle.innerText = city + " " + date
     temp.innerText = "Temp: " + data.current.temp + " °F"
