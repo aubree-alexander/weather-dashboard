@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 5px;
@@ -6,7 +5,6 @@
 
 header {
     background-image: linear-gradient(to right, #3a6bc1 , #250859);
-    
 }
 
 .pageTitle {
@@ -15,12 +13,15 @@ header {
     text-align: center;
 }
 
+/* search section */
+
 #citySearchSection {
     font-weight: bold;
     display: flex;
     flex-direction: column;
     text-align: left;
     width: 90%;
+    border-bottom: 2px solid;
 }
 
 #searchBar {
@@ -31,38 +32,55 @@ header {
 #searchBtn {
     color: white;
     background-color: #3e93bd;
-    width: 100%;
     text-align: center;
     border-radius: 5px;
 }
 
-.forecastDay {
-    background-color: #1b516b;
-    color: white;
+.searchSection {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 1px;
+}
+
+/* end search section */ 
+
+/* Current weather section */
+#introText {
+    font-weight: 300;
 }
 
 #currentDayWeather {
-    border: 3px solid;
+    border: 2px solid;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-
+    width: 60%;
+    border-radius: 5px;
 }
 
-#forecastTitle {
-    font-weight: bold;
+/* end current weather section */
+
+/* five day forecast section */
+
+.cardContainer {
+    justify-content: flex-end;
+    width: 60%;
+    margin-left: 40%;
 }
 
-#fiveDay {
-    border: 3px red solid;
+#fiveDayContainer {
+    padding: 0;
+    margin: 0;
+}
+.fiveDayStyle {
+    width: 90%;
     display: flex;
-    float: right;
-}
-
-
-
-.col-12 {
-    justify-content: space-between;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .card {
@@ -72,22 +90,18 @@ header {
     padding: 5px;
 }
 
+.col-md {
+    border-radius: 5px;
+}
 .col-12 p {
     color: white;
     font-weight: normal;
     padding: 5px;
- }
+}
 
+/* end five day forecast section */
 
-
- .searchSection {
-   width: 40%;
-   display: flex;
-   flex-direction: column;
-   float: left;
- }
-
- /*styling for search history buttons*/
+/* search history buttons */
 
  .historyButtons {
     background-color: grey;
@@ -95,10 +109,27 @@ header {
     border-radius: 5px;
     list-style: none;
     text-align: center;
- 
  }
 
 #searchHistory {
-    float: left;
-    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: none;
 }
+
+/* end search history buttons */
+
+/* icon styling */ 
+
+.iconStyleCurrent {
+    width: 60px;
+    height: 60px;
+}
+
+.iconStyle {
+    width: 50px;
+    height: 50px;
+}
+
+/* end icon styling */ 

@@ -24,26 +24,23 @@
             </form>
 
             <!--search history-->
-            <ul id="searchHistory">
+            <ul id="searchHistory" class="container">
                 <!--search history li's go here-->
             </ul>
         </section>
         
         <!--current weather for city entered in searchbar-->
-        <section id="currentDayWeather">
-            <div id="weatherCard" class="card-body">
+        <div id="currentDayContainer">
+            <section id="currentDayWeather">
+                <h5 id="introText">Search for a city to see the weather!</h5>
+                <div id="weatherCard" class="card-body"></div>
+            </section>
+            <span id="fiveDayContainer"></span>
+        </div>
+       
+            <div class="cardContainer">
+                <div id="fiveDay" class="fiveDay row mx-auto"></div>
             </div>
-        </section>
-        
-        
-            
-                <div class="container">
-                    <div id="fiveDay" class="fiveDay">
-                        <div id="forecastTitle">
-                            <h3>5-Day Forecast:</h3>
-                        </div>
-                    </div>
-                </div>
     </main>
 
     <!--moment.js CDNs-->

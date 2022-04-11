@@ -4,8 +4,7 @@ dayjs.extend(window.dayjs_plugin_timezone);
 
 //global variables
 var cityName = '';
-var apiKey = "d91f911bcf2c0f925fb6535547a5ddc9";
-//"a6afda3f25e97c43efdc2ed9326eeba8";
+var apiKey = "a6afda3f25e97c43efdc2ed9326eeba8";
 var searchHistory = $("#searchHistory")
 
 
@@ -35,7 +34,7 @@ function getCoord(city){
                 })
         })
 }
-getCoord("edison");
+getCoord();
 
 
 //get current weather data for city entered 
@@ -50,9 +49,11 @@ function getCurrent(city, data) {
     var humidity = document.createElement('p')
     var wind = document.createElement('p')
     var uv = document.createElement('p')
+    var icon = document.createElement('img')
     weatherColumn.setAttribute('class', 'col-md')
     weatherCard.setAttribute('class', 'card-body float-left')
-
+    icon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png')
+    icon.setAttribute('class', 'iconStyleCurrent')
     cityTitle.innerText = city + " " + date
     temp.innerText = "Temp: " + data.current.temp + " °F"
     humidity.innerText = "Humidity: " + data.current.humidity + "%"
@@ -60,7 +61,7 @@ function getCurrent(city, data) {
     uv.innerText = "UV Index: " + data.current.uvi
     displayWeather.append(weatherColumn)
     weatherColumn.append(weatherCard)
-    weatherCard.append(cityTitle, temp, humidity, wind, uv)
+    weatherCard.append(cityTitle, icon, temp, humidity, wind, uv)
     
     //display different colors depending on value of uv index
     if (data.current.uvi <= 2) {
@@ -73,13 +74,13 @@ function getCurrent(city, data) {
 }
 
 
-
 //5-day forecast cards, starting at tomorrow's date
 function fiveDay(data) {
     var fiveDayDiv = $("#fiveDay")
     var fiveDayCol = document.createElement('div')
     fiveDayCol.setAttribute('class', 'col-12 row')
     fiveDayDiv.append(fiveDayCol)
+    
 
     for (i = 1; i < 6; i++) {
         var cardDate = document.createElement('div')
@@ -88,39 +89,48 @@ function fiveDay(data) {
         var cardTemp = document.createElement('p')
         var cardHumidity = document.createElement('p')
         var cardWind = document.createElement('p')
-          
+        var icon = document.createElement('img')
+        icon.setAttribute('src', 'http://openweathermap.org/img/wn/' + data.daily[i].weather[0].icon + '@2x.png')
+        icon.setAttribute('class', 'iconStyle')
         fiveDayCol.append(cardDate)
-        //adding stuff here
         var dataTemp = data.daily[0].temp.day
         var dataHumidity = data.daily[0].humidity
         var dataWind = data.daily[0].wind_speed
         cardTemp.innerText = "Temp: " + dataTemp + " °F"
         cardHumidity.innerText = "Humidity: " + dataHumidity + "%"
         cardWind.innerText = "Wind: " + dataWind + " MPH"
-        
-        cardDate.append(cardTemp, cardHumidity, cardWind)
-        
-
+    
+        //append data to 5-day forecast div
+        cardDate.append(icon, cardTemp, cardHumidity, cardWind)
     }
 }
 
 
+// //click event for search button
+
+    $("#searchBtn").click(function() {
+        //empty current weather data any time search is clicked
+        $("#currentDayWeather").empty();
+        $("#fiveDay").empty();
+        //empty intro text for inital search
+        $("#introText").empty();
+        var cityName = $.trim($("#searchBar").val())
+        getCoord(cityName)
+        var cityNameLi = document.createElement("li")
+        cityNameLi.innerText = cityName
+        cityNameLi.setAttribute('class', 'historyButtons')
+        //stop appending search history once ul length equals 10
+        if ($(".historyButtons").length < 10) {
+            $("#searchHistory").append(cityNameLi)
+            localStorage.setItem('searchHistory', JSON.stringify(cityName))
+        }
+        //clear form input for next search
+        $("#searchBar").val('');
+    })
 
 
-// //click event for search button, save to localstorage
-$("#searchBtn").click(function() {
-    var cityName = $.trim($("#searchBar").val())
-    getCoord(cityName)
-    //aa commented these out on sunday
-    // var searchItems = document.createElement("btn")
-    // searchItems.innerText = cityName
-    // searchHistoryButtons.append(searchItems)
-    var cityNameLi = document.createElement("li")
-    cityNameLi.innerText = cityName
-    cityNameLi.setAttribute('class', 'historyButtons')
-    $("#searchHistory").append(cityNameLi)
-    // localStorage.setItem('cityName', cityName)
-})
+
+//aubree is to add localstorage function for future (show search history upon refresh)
+//aubree is to add ability to click search history list items to re-search 
 
 
-//https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
