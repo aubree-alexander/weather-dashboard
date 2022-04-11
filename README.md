@@ -9,7 +9,8 @@
  * Bootstrap
  * OpenWeather API
 
- ## Website: https://aubree-alexander.github.io/weather-dashboard/
+ ## Website: 
+ https://aubree-alexander.github.io/weather-dashboard/
 
 ## Description/Purpose
 * Challenge for UW Extensions Coding Bootcamp. 

@@ -11,7 +11,7 @@ var searchHistory = $("#searchHistory")
 
 //function to fetch coordinates from weather api
 function getCoord(city){
-    var apiCoordURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey ;
+    var apiCoordURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=" + apiKey ;
 
     fetch(apiCoordURL)
         .then(function(response){
